@@ -1,0 +1,31 @@
+@media screen and (min-width: 768px) {
+    .objetive{
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+    }
+
+    .objetive h1 {
+        text-align: center;
+    }
+
+    .objetive p {
+        text-align: center;
+    }
+
+    .contact button {
+        width: 500px;
+    }
+
+        .bem-vindo h4{
+        font-size: 3rem;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 530px) {
+    .bem-vindo h4{
+        font-size: 2rem;
+        text-align: center;
+    }
+}

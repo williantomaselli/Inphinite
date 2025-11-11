@@ -2,6 +2,50 @@ const abrir = document.getElementById("abrir");
 const fechar = document.getElementById("fechar");
 const menu = document.getElementById("menu");
 
+
+// welcome
+document.addEventListener("DOMContentLoaded", async () => {
+  await new Promise(r => setTimeout(r, 2000)); // espera 2s antes de iniciar
+
+  const welcome = document.getElementById("welcome");
+  if (!welcome) return;
+
+  const h4 = welcome.querySelector("h4");
+  const p  = welcome.querySelector("p");
+
+  function fadeOut(element, duration) {
+    return new Promise(resolve => {
+      const initial = parseFloat(getComputedStyle(element).opacity) || 1;
+      const start = performance.now();
+
+      function frame(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        element.style.opacity = initial * (1 - progress);
+
+        if (progress < 1) requestAnimationFrame(frame);
+        else resolve();
+      }
+
+      requestAnimationFrame(frame);
+    });
+  }
+
+  // 1) some os filhos ao mesmo tempo (2s)
+  await Promise.all([
+    h4 && fadeOut(h4, 3000),
+    p  && fadeOut(p, 3000)
+  ]);
+
+  // 2) depois some o pai (3s)
+  await fadeOut(welcome, 3100);
+
+  welcome.remove();
+});
+
+
+
+// animacao de entrada do site
+
 abrir.addEventListener("click", () => menu.classList.add("show"));
 fechar.addEventListener("click", () => menu.classList.remove("show"));
 
@@ -46,15 +90,3 @@ document.getElementById("sendBtn").addEventListener("click", function () {
   window.open(whatsappURL, "_blank");
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-  const larguraMaxMobile = 768;
-  const atual = window.location.pathname.split("/").pop(); 
-
-  if (window.innerWidth > larguraMaxMobile && atual !== "working.html") {
-    window.location.href = "./working.html";
-  }
-
-  if (window.innerWidth <= larguraMaxMobile && atual !== "index.html") {
-    window.location.href = "./index.html";
-  }
-});

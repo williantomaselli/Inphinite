@@ -19,6 +19,47 @@
   src: url(./Font/Exo_2/Exo2-VariableFont_wght.ttf);
 }
 
+
+/* tela de bem_vindo (entrada do site) */
+.bem-vindo{
+  position: fixed;
+  z-index: 1000;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000106;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+
+  opacity: 1;
+}
+
+.bem-vindo h4{
+  font-family: Raleway;
+  font-size: 3rem;
+  margin: 0;
+  padding: 0;
+  color: rgba(255, 255, 255, 0.789);
+
+  opacity: 1;
+}
+
+.bem-vindo h4 span{
+  color: #0028ee;
+  font-weight: 800;
+}
+
+.bem-vindo p{
+  font-family: Raleway;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.64);
+
+  opacity: 1;
+
+}
+
 .link-point {
   position: relative;
   height: 5px;
